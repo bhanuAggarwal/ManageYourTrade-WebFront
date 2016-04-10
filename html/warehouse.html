@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>Warehouse Panel</title>
+	</head>
+	<body>
+		<form method = "POST" action="http://localhost:8080/myt-services/admin/warehouse/upload" enctype="multipart/form-data">
+			<label for="invoice"> Invoice</label>
+			<input type = "file" name = "invoice" id = "invoice"/><br/>
+			<label for="collection"> Collection</label>
+			<input type = "file" name = "collection" id = "collection"/><br/>
+			<label for="payment_due"> Payment Due</label>
+			<input type = "file" name = "payment_due" id = "payment_due"/><br/>
+			<label for="account"> Account Statement</label>
+			<input type = "file" name = "account" id = "account"/><br/>
+			<label for="cn"> CN Statement</label>
+			<input type = "file" name = "cn" id = "cn"/><br/>
+			<label for="dn">DN Statement</label>
+			<input type = "file" name = "dn" id = "dn"/><br/>
+			<label for="sales_report">Sales Report</label>
+			<input type = "file" name = "sales_report" id = "sales_report"/><br/>
+			<label for="amount">Total Amount</label>
+			<input type = "text" name = "amount" id = "amount"/><br/>
+			<input type="button" name="submit" id="submit" value="Submit">
+		</form>
+	</body>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/warehouse.js"></script>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Regional Manager</title>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/main.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12 header whiteBackground shadow">
+					<div class="row">
+						<div class="col-md-2 dashLogo">
+							<strong>MYT</strong>
+						</div>
+						<div class="col-md-10">
+							<button class="btn settings"><img src="../media/tool.png" height="30px"></button>
+							<div class="userName">Hello Bhanu!</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-9 listContainer">
+							<div class="heading">
+								
+							</div>
+							<div class="list">
+								<div class="listItem shadow">
+									<div class="itemPic col-md-2">
+										<img src="../media/people.png" height="80px" width="80px">
+									</div>
+									<div class="itemName col-md-10">
+										Bhanu Aggarwal
+										<div class="itemEmail">
+											Email
+										</div>
+									</div>
+									
+								</div>
+								<div class="listItem shadow">
+									<div class="itemPic col-md-2">
+										<img src="../media/people.png" height="80px" width="80px">
+									</div>
+									<div class="itemName col-md-10">
+										Bhanu Aggarwal
+										<div class="itemEmail">
+											Email
+										</div>
+									</div>
+								</div>
+								<div class="listItem shadow">
+									<div class="itemPic col-md-2">
+										<img src="../media/people.png" height="80px" width="80px">
+									</div>
+									<div class="itemName col-md-10">
+										Bhanu Aggarwal
+										<div class="itemEmail">
+											Email
+										</div>
+									</div>
+								</div>
+								<div class="listItem shadow">
+									<div class="itemPic col-md-2">
+										<img src="../media/people.png" height="80px" width="80px">
+									</div>
+									<div class="itemName col-md-10">
+										Bhanu Aggarwal
+										<div class="itemEmail">
+											Email
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="profile col-md-3">
+							<div class="designation">
+								Company Admin
+							</div>
+							<br/>
+							<div class="profilePic">
+								<img src="../media/people.png" height="150px" width="150px">
+							</div>
+							<div class="name">
+								<strong>Bhanu Aggarwal</strong>
+							</div>
+							<div class="email">
+								Email : bhanu@gawds.in
+							</div>
+							<div class="phone">
+								Phone : +91-9468077921
+							</div>
+							<div class="company">
+								Company : GAWDS
+							</div>
+							<div class="addNew shadow">
+								<img src="../media/arrows-1.png" class="plusButton">
+								<button class="btn btn-primary shadow" data-toggle="modal" data-target="#myModal">Add New</button>	
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Add New Area Manager</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form method="POST" enctype="multipart/form-data">
+		        	<input type="text" id = "name" name = "name" placeholder= "Name" class="form-control">
+		        	<input type="text" id = "designation" name = "designation" placeholder= "Designation" class="form-control">
+		        	<input type="text" id = "area" name = "area" placeholder= "Area" class="form-control">
+		        	<input type="text"id = "phone_no" name = "phone_no" placeholder= "Phone No." class="form-control">
+		        	<input type="text" id = "email" name = "email" placeholder= "Email" class="form-control">
+		        	<input type="password" id = "password" name = "password" placeholder= "Password" class="form-control">
+		        	<input type="file" id = "picture" name = "picture" >
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" id="submit" class="btn btn-primary">Submit</button>
+		        </form>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/rm.js"></script>
+</html>

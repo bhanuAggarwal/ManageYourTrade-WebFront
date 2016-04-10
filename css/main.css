@@ -1,0 +1,311 @@
+body{
+    font-family: 'Roboto Condensed', sans-serif !important;
+    overflow: hidden;
+}
+
+.header{
+    background-color: #009688;
+    height: 11vh;
+    color:white;
+    font-size: 2.5em;
+    padding-top: 10px;
+    z-index: 1000;
+}
+
+.mainContainer{
+    height: 89vh;
+    background:url("../media/bg.jpg") center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height:100%;
+    color:white;
+    text-align:center;
+
+}
+.overlay{
+    height: 91vh;
+    background-color: black;
+    opacity: 0.5;
+    margin-left: -20px;
+    width:110% !important;
+}
+
+.loginBox{
+    display: inline;
+    background-color: white;
+    opacity: 0.7;
+    position: absolute;
+    left: 50%;
+    margin-left: -200px;
+    width: 400px;
+    height: 60vh;
+    margin-top: 15vh;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow:0 0 10px;
+}
+.logo{
+    left: 50%;
+    margin-left: -40px;
+    opacity: 1;
+    position: absolute;
+    margin-top: 18vh;
+    z-index: 100;
+}
+.loginForm{
+    position: absolute;
+    margin-top: 45vh;
+    left: 50%;
+    margin-left: -170px;
+}
+
+.tagLine{
+    font-size: 2em;
+    color: black;
+    margin-top: 30%;
+    margin-bottom: 8%;
+}
+.fields {
+    color: black;
+    background-color: white;
+    border:1px solid;
+    text-align: center;
+    height: 13%!important;
+    width: 350px !important;
+    font-size: 1.3em !important;
+    background-repeat:no-repeat;
+    background-size: 25px;
+    background-position:6px;
+}
+#username{
+    background-image:url(../media/email.png) !important;
+}
+.loginBox > #password{
+    background-image:url(../media/password.png) !important;
+}
+.submit{
+    width: 350px;
+    margin-top: 8%;
+    background-color: #009688;
+    height: 13%;
+    color: white;
+    font-size: 1.6em !important;
+    opacity: 1!important;
+}
+.whiteBackground{
+    background-color: white !important;
+    color: #009688;
+}
+.shadow{
+    box-shadow:2px 2px 7px #444343;
+}
+.userName{
+    font-size: 0.7em;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    float: right;
+}
+
+.deshLogo{
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+.settings{
+    float: right;
+    background: none;
+    display: inline-block;
+    vertical-align: middle !important;
+    width: 40px;
+}
+.profile{
+    background-color: #009688;
+    height: 89vh;
+    margin-top: 2vh;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    overflow-y: hidden;
+}
+
+.designation{
+    border:2px solid;
+    display: inline;
+    padding: 10px;
+    width: 60%;
+    font-size: 0.6em;
+}
+
+.profilePic >img {
+    display: inline;
+    z-index: 10;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border:2px solid white;
+    border-radius: 50%;
+    
+}
+.profile > .name{
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.profile > .email , .phone , .company{
+    font-size: 0.5em;
+    padding: 5px;
+}
+
+.profile > .addNew > button{
+    position: absolute;
+    bottom: 5%;
+    width: 60%;
+    right: 20%;
+    padding: 10px;
+    background-color: white;
+    color:#969393;
+    font-size: 0.6em;
+    font-weight: 2em;
+    border-radius: 5px;
+}
+
+.addNew > .plusButton{
+    position: absolute;
+    left: 21%;
+    height: 40px;
+    bottom: 6%;
+    padding-right: 5px;
+    z-index: 10;
+    border-right: 2px solid #D1D1D1;
+
+}
+.listContainer{
+    height: 89vh;
+    margin-top: 2vh;
+    overflow-y: scroll;
+}
+
+.heading{
+    color: #969393 !important;
+    font-size: 0.7em;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.list > .listItem{
+    height: 100px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+
+.listItem > .itemPic{
+    height: 100%;
+    border-radius: 50% !important;
+}
+
+.listItem > .itemName{
+    font-size: 0.9em;
+    color: #009688;
+    margin-top: 15px;
+}
+
+.itemEmail{
+    color: #969393 !important;
+    margin-top: -7px !important;
+    font-size: 0.5em !important;
+}
+.modal-body > form {
+    text-align: center;
+}
+.modal-body > form > input{
+    width: 85%;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+div.vertical-line{
+  width: 0px; /* Use only border style */
+  height: 100%;
+  float: left; 
+  border: 1px inset; /* This is default border style for <hr> tag */
+}
+
+.fleft {
+    float:left; 
+    width: 49%;
+    background:white;
+    min-height: 645px;
+    border:1px;
+    padding:5px;
+}
+.compadmin_input {
+    height: 34px;
+    width: 326px;
+    margin-right: 40px;
+    float: right;
+}
+.compadmin_div {
+    width:600px;
+    margin-top: 10px;
+    margin-left: -10px;
+    padding:15px
+}
+.compadmin_submit{
+    height: 40px;
+    width: 167px;
+    font-size:20px;
+    display: block;
+    margin: 0 auto;
+}
+.circular {
+	width: 150px;
+	height: 150px;
+	border-radius: 150px;
+    margin-top: 10px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(../media/anonymous.jpg) no-repeat;
+	}
+
+.circular_add {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    margin-top: 10px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background: url(../media/plus.png) no-repeat;
+    }
+
+.circular:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.circular_add:hover {
+    opacity: 0.5;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+/*.fcenter{
+    float:left;
+    width: 33.33%;
+    background:lightgreen;
+    height:400px;
+}*/
+
+.fright {
+    float: right;
+    background:white;
+    min-height: 600px;
+    width: 49%;
+    border:1px;
+    padding:5px;
+}
+
+.content_head {
+	display:inline;
+}
+.contents{
+    padding:12px;
+}

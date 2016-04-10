@@ -1,0 +1,62 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+<div width="100%">
+	<div class="fleft" style="width:600px;margin-top: 10px;margin-left: -10px;padding:15px"> 
+		<h1 align="center">Dealer's Details</h1>
+		<h3 > Name:-  <input type="text" class="compadmin_input" placeholder="Name" id="name"/><h3>
+		<h3 > Email:- <input type="text" class="compadmin_input" placeholder="email" id="email"/></h3>
+		<h3 > Phone Number:- <input type="text" class="compadmin_input" placeholder="phone" id="phone"/></h3>
+		<h3 > Upload Photo:-<input type="file" class="compadmin_input" placeholder="photo" /> </h3> 
+		<h3 > Add Password:- <input type="password" class="compadmin_input" placeholder="password" id="password"/></h3>
+		<h3> Address:-  <input type="text" class="compadmin_input" placeholder="address" id="address"/> </h3>
+		<h3> Latitude:-  <input type="text" class="compadmin_input" placeholder="latitude" id="latitude"/> </h3>
+		<h3> Longitude:-  <input type="text" class="compadmin_input" placeholder="longitude" id="longitude"/> </h3>
+		<h3> TIN/TAN:-  <input type="text" class="compadmin_input" placeholder="tin" id="tin"/> </h3>
+		<h3> PAN:-  <input type="text" class="compadmin_input" placeholder="pan" id="pan"/></h3>
+		<h3> Bank Name:-  <input type="text" class="compadmin_input" placeholder="bank_name" id="bank_name"/></h3>
+		<h3> Bank A/C:-  <input type="text" class="compadmin_input" placeholder="bank_acc" id="bank_acc"/></h3>
+		<h3> Bank Address:-  <input type="text" class="compadmin_input" placeholder="bank_add" id="bank_add"/></h3>
+		<h3> Bank IFSC:-  <input type="text" class="compadmin_input" placeholder="bank_ifsc" id="bank_ifsc"/></h3>
+		<h3> Reg. Number:-  <input type="text" class="compadmin_input" placeholder="Registration Number" id="reg_no"/></h3>
+		<button type="submit" val="submit" class="compadmin_submit" id="dealer_submit"> Submit </button>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script language="javascript" type="text/javascript">
+$(document).ready(function() {
+	$("#dealer_submit").click(function(){
+		var dealer = {};
+		dealer.name = $("#name").val();
+		dealer.email = $("#email").val();
+		dealer.address = $("#address").val();
+		dealer.phone_no = $("#phone").val();
+		dealer.password = $("#password").val();
+		dealer.latitude = $("#latitude").val();
+		dealer.longitude = $("#longitude").val();
+		dealer.tin = $("#tin").val();
+		dealer.pan = $("#pan").val();
+		dealer.bank_name = $("#bank_name").val();
+		dealer.bank_account = $("#bank_acc").val();
+		dealer.bank_address = $("#bank_add").val();
+		dealer.bank_ifsc = $("#bank_ifsc").val();
+		dealer.reg_no = $("#reg_no").val();
+		dealer.boss_id = 2;
+		dealer.profile_pic = "bfajf";
+		$.ajax({
+  			type: "POST",
+  			url: "http://localhost:8080/myt-services/admin/dealer",
+  			data: JSON.stringify(dealer),
+  			dataType : "json",
+  			contentType: "application/json",
+  			success: function f1 (data) {
+  						alert(data.message);
+  			}
+        });
+	})
+});
+</script>
+</html>

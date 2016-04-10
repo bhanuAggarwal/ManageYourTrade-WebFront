@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<title>Form</title>
+			<link rel="stylesheet" type="text/css" href="../css/main.css">
+		</head>
+		<div width="100%">
+			<div class="fleft" style="width:600px;margin-top: 10px;margin-left: -10px;padding:15px"> 
+				<h1 align="center">Fill Out the Details </h1>
+				<h3 > Name:-  <input type="text" class="compadmin_input" val="name" id="name"/><h3>
+				<h3 > Designation:-<input type="text" class="compadmin_input" val="designation" id="designation"/></h3>
+				<h3 > Area:- <input type="text" class="compadmin_input" val="area" id="area"/></h3>
+				<h3 > Phone Number:- <input type="text" class="compadmin_input" val="phone_no" id="phone_no"/></h3>
+				<h3 > Email:- <input type="email" class="compadmin_input" val="email" id="email"/></h3>
+				<h3 > Password:- <input type="password" class="compadmin_input" val="password" id="password"/></h3>
+				<h3 > Upload Photo:-<input type="file" class="compadmin_input" val="photo" /> </h3> 
+				<button type="submit" val="submit" class="compadmin_submit" id="submit"> Submit </button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function() {
+			$("#submit").click(function(){
+				var user = {};
+				if($("#name").val() == "" || $("#designation").val() == "" || $("#area").val() == "" || $("#phone_no").val() == "" || $("#email").val() == "" || $("#password").val() == ""){
+					alert("All fields are Required");
+					return false;
+				}
+				user.name = $("#name").val();
+				user.designation = $("#designation").val();
+				user.area = $("#area").val();
+				user.phone_no = $("#phone_no").val();
+				user.email = $("#email").val();
+				user.password = $("#password").val();
+				user.boss_id = 1;
+				$.ajax({
+		  			type: "POST",
+		  			url: "http://localhost:8080/myt-services/admin/rm",
+		  			data: JSON.stringify(user),
+		  			success: function f1 () {
+		  				alert("successfully added");
+		  			},
+		  			dataType : "json",
+		  			contentType: "application/json",
+		        });
+			})
+
+		});
+		</script>
+</html>

@@ -1,0 +1,89 @@
+
+<html>
+<head>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/main.css">
+<script language="javascript" type="text/javascript">
+$(document).ready(function() {
+	$("#compadmin_submit").click(function(){
+		var company = {};
+		company.name = $("#name").val();
+		company.address = $("#address").val();
+		company.description = $("#desc").val();
+		company.tin = $("#tin").val();
+		company.pan = $("#pan").val();
+		company.bank_name = $("#bank_name").val();
+		company.bank_account = $("#bank_acc").val();
+		company.bank_address = $("#bank_add").val();
+		company.bank_ifsc = $("#bank_ifsc").val();
+		company.reg_no = $("#reg_no").val();
+		$.ajax({
+  			type: "POST",
+  			url: "http://localhost:8080/myt-services/super-admin/company",
+  			data: JSON.stringify(company),
+  			success: function f1 () {
+  				var company_admin = {};
+  				company_admin.username  = $("#username").val();
+  				company_admin.email  = $("#email").val();
+  				company_admin.phone_no  = $("#phone").val();
+  				company_admin.password  = $("#password").val();
+  				company_admin.rm_no  = $("#RM_no").val();
+  				company_admin.am_no  = $("#AM_no").val();
+  				company_admin.tsi_no  = $("#TSI_no").val();
+  				company_admin.dealer_no  = $("#Dealer_no").val();
+  				$.ajax({
+  					type: "POST",
+  					url: "http://localhost:8080/myt-services/super-admin/company-admin",
+  					data: JSON.stringify(company_admin),
+  					success: function f1 () {
+  						alert("Company Admin and Company added");
+  					},
+  					dataType : "json",
+  					contentType: "application/json",
+        		});
+  			},
+  			dataType : "json",
+  			contentType: "application/json",
+        });
+	})
+});
+</script>
+</head>
+<body style="background-color:#B6B6B6;">
+<div style="background-color:#009688;padding:10px">
+<p style="font-size:46px;color:white" align="center">
+	WELCOME TO MYT
+</p>
+<div width="100%">
+	<div class="fleft" style="width:600px;margin-top: 10px;margin-left: -10px;padding:15px"> 
+		<h1 align="center">Company Admin's Details</h1>
+		<h3 > UserName:-  <input type="text" class="compadmin_input" val="username" id="username"/><h3>
+		<h3 > Email:- <input type="text" class="compadmin_input" val="email" id="email"/></h3>
+		<h3 > Phone Number:- <input type="text" class="compadmin_input" val="phone" id="phone"/></h3>
+		<h3 > Upload Photo:-<input type="file" class="compadmin_input" val="photo" /> </h3> 
+		<h3 > Add Password:- <input type="password" class="compadmin_input" val="password" id="password"/></h3>
+		<h3 > Allowed number of RMs:- <input type="text" class="compadmin_input" val="RM_no" id="RM_no"/></h3>
+		<h3 > Allowed number of AMs:- <input type="text" class="compadmin_input" val="AM_no" id="AM_no"/></h3>
+		<h3 > Allowed number of TSIs:- <input type="text" class="compadmin_input" val="TSI_no" id="TSI_no"/></h3>
+		<h3 > Allowed number of dealers:- <input type="text" class="compadmin_input" val="Dealer_no" id="Dealer_no"/></h3>
+		
+	</div>
+	<div class="fright" style="width:600px;margin-top: 10px;margin-right: -10px; padding:15px;">
+		<h1 align="center"> Company's Details </h1>
+		<h3> Name:-  <input type="text" class="compadmin_input" val="name" id="name"/><h3>
+		<h3> Address:-  <input type="text" class="compadmin_input" val="address" id="address"/> </h3>
+		<h3> Description:-  <input type="text" class="compadmin_input" val="desc" style="height:100px" id="desc"/></h3></br></br></br>
+		<h3 > Logo:-<input type="file" class="compadmin_input" val="logo" id="logo"/> </h3> 
+		<h3> TIN/TAN:-  <input type="text" class="compadmin_input" val="tin" id="tin"/> </h3>
+		<h3> PAN:-  <input type="text" class="compadmin_input" val="pan" id="pan"/></h3>
+		<h3> Bank Name:-  <input type="text" class="compadmin_input" val="bank_name" id="bank_name"/></h3>
+		<h3> Bank A/C:-  <input type="text" class="compadmin_input" val="bank_acc" id="bank_acc"/></h3>
+		<h3> Bank Address:-  <input type="text" class="compadmin_input" val="bank_add" id="bank_add"/></h3>
+		<h3> Bank IFSC:-  <input type="text" class="compadmin_input" val="bank_ifsc" id="bank_ifsc"/></h3>
+		<h3> Registration Number:-  <input type="text" class="compadmin_input" val="reg_no" id="reg_no"/></h3>
+		<button type="submit" val="submit" class="compadmin_submit" id="compadmin_submit"> Submit </button>
+	</div>
+</div>
+
+</body>
+</html>
