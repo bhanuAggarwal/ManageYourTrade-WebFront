@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"http://localhost:8080/myt-services/admin/rm/details",
+		url			: 	"http://localhost:8080/myt-services/admin/am/details",
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
@@ -15,13 +15,13 @@ $(document).ready(function() {
 	console.log("ready");
 	$.ajax({
 		type		: "GET",
-		url 		: "http://localhost:8080/myt-services/admin/am",
+		url 		: "http://localhost:8080/myt-services/admin/tsi",
 		contentType	: "application/json",
 		success		: function(data){
 						rm_list = data;
 						console.log(data.length);
 						for(var i = 0; i < data.length; i++) {
-							var list = '<div class="listItem shadow" onClick="openAM('+data[i].id+')">' +
+							var list = '<div class="listItem shadow" onClick="openTSI('+data[i].id+')">' +
 											'<div class="itemPic col-md-2">' +
 												'<img src="'+ data[i].profile_pic+'" height="100px" width="100px">' +
 											'</div>' + 
@@ -39,24 +39,24 @@ $(document).ready(function() {
 })
 
 $("#submit").click(function(){
-	var am = {};
-		am.name 		= 	$("#name").val();
-		am.email 		= 	$("#email").val();
-		am.designation 	= 	$("#designation").val();
-		am.phone_no 	= 	$("#phone_no").val();
-		am.password 	= 	$("#password").val();
-		am.area 		= 	$("#area").val();
+	var tsi = {};
+		tsi.name 		= 	$("#name").val();
+		tsi.email 		= 	$("#email").val();
+		tsi.designation = 	$("#designation").val();
+		tsi.phone_no 	= 	$("#phone_no").val();
+		tsi.password 	= 	$("#password").val();
+		tsi.area 		= 	$("#area").val();
 	$.ajax({
 		type 			: 	"POST",
-		url				:   "../../myt-services/admin/am", 
-		data 			: 	JSON.stringify(am),
+		url				:   "../../myt-services/admin/tsi/add", 
+		data 			: 	JSON.stringify(tsi),
 		contentType 	: 	"application/json",
 		success 		: 	function(data){
 								console.log(data);
 								var pic = new FormData();
 								pic.append("file",picture.files[0]);
 								$.ajax({
-								    url: '../../myt-services/admin/AM/' + data.id + '/picture',
+								    url: '../../myt-services/admin/TSI/' + data.id + '/picture',
 								    data: pic,
 								    dataType: 'text',
 								    processData: false,
@@ -71,14 +71,14 @@ $("#submit").click(function(){
 	});
 });
 
-function openAM(am_id){
+function openTSI(tsi_id){
 	$.ajax({
 		type 	: 	"GET",
-		url 	: 	"../../myt-services/admin/session/AM/" + am_id,
+		url 	: 	"../../myt-services/admin/session/TSI/" + tsi_id,
 		success : 	function(data){
 					console.log(data);
 					if(data.id > 0){
-						window.location = "am.html";
+						window.location = "tsi.html";
 					}
 					else{
 						alert("Please Try Again");

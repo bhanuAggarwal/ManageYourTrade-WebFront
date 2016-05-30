@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>Warehouse Panel</title>
+		<title>Area Manager</title>
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
@@ -20,15 +21,15 @@
 					</div>
 					<div class="row">
 						<div class="col-md-9 listContainer">
+							<div class="heading">
+								List of Dealers
+							</div>
 							<div class="list">
-								<select id=  "dealerList">
-									<option>Select</option>
-								</select>
 							</div>
 						</div>
 						<div class="profile col-md-3">
 							<div class="designation">
-								Warehouse
+								TSI
 							</div>
 							<br/>
 							<div class="profilePic">
@@ -61,27 +62,25 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Add New Area Manager</h4>
+		        <h4 class="modal-title" id="myModalLabel">Add New Regional Manager</h4>
 		      </div>
 		      <div class="modal-body">
-	        	<form method = "POST" enctype="multipart/form-data">
-
-					<label for="invoice"> Invoice</label>
-					<input type = "file" name = "invoice" id = "invoice"/><br/>
-					<label for="collection"> Collection</label>
-					<input type = "file" name = "collection" id = "collection"/><br/>
-					<label for="payment_due"> Payment Due</label>
-					<input type = "file" name = "payment_due" id = "payment_due"/><br/>
-					<label for="account"> Account Statement</label>
-					<input type = "file" name = "account" id = "account"/><br/>
-					<label for="cn"> CN Statement</label>
-					<input type = "file" name = "cn" id = "cn"/><br/>
-					<label for="dn">DN Statement</label>
-					<input type = "file" name = "dn" id = "dn"/><br/>
-					<label for="sales_report">Sales Report</label>
-					<input type = "file" name = "sales_report" id = "sales_report"/><br/>
-					<input type = "text" name = "amount" id = "amount" value = "Total Amount"/><br/>
-					<input type="button" name="submit" id="submit" value="Submit">
+		        <form method="POST" enctype="multipart/form-data">
+		        	<input type="text" id = "name" name = "name" placeholder= "Name" class="form-control">
+		        	<input type="text"id = "phone_no" name = "phone_no" placeholder= "Phone No." class="form-control">
+		        	<input type="text" id = "email" name = "email" placeholder= "Email" class="form-control">
+		        	<input type="password" id = "password" name = "password" placeholder= "Password" class="form-control">
+					<input type="text" class="form-control" placeholder="Address" id="address" name ="address"/>
+					<input type="text" class="form-control" placeholder="Latitude" id="latitude" name = "latitude"/>
+					<input type="text" class="form-control" placeholder="Longitude" id="longitude" name = "longitude"/> 
+					<input type="text" class="form-control" placeholder="TIN/TAN" id="tin" name = "tin"/>
+					<input type="text" class="form-control" placeholder="Pan" id="pan" name = "pan"/>
+					<input type="text" class="form-control" placeholder="Bank Name" id="bank_name" name = "bank_name"/>
+					<input type="text" class="form-control" placeholder="Bank A/C" id="bank_acc" name = "bank_acc"/>
+					<input type="text" class="form-control" placeholder="Bank Address" id="bank_add" name = "bank_add"/>
+					<input type="text" class="form-control" placeholder="Bank IFCS" id="bank_ifsc" name = "bank_ifsc"/>
+					<input type="text" class="form-control" placeholder="Registration Number" id="reg_no" name = "reg_no"/>
+		        	<input type="file" id = "picture" name = "picture" >
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" id="submit" class="btn btn-primary">Submit</button>
@@ -93,5 +92,5 @@
 	</body>
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/warehouse.js"></script>
+	<script type="text/javascript" src="../js/tsi.js"></script>
 </html>

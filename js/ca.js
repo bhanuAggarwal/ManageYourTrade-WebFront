@@ -22,7 +22,7 @@ $(document).ready(function() {
 						rm_list = data;
 						console.log(data);
 						for(var i = 0; i < data.length; i++) {
-							var list = '<div class="listItem shadow" onClick="showAM('+data[i].id+')">' +
+							var list = '<div class="listItem shadow" onClick="openRM('+data[i].id+')">' +
 											'<div class="itemPic col-md-2">' +
 												'<img src="'+ data[i].profile_pic+'" height="100px" width="100px">' +
 											'</div>' + 
@@ -33,11 +33,6 @@ $(document).ready(function() {
 												'</div>' +
 											'</div>' +
 										'</div>';
-							//var list = '<div onClick= "showAM('+i+')"class="col-md-6" align="center"> <div class="circular" style="background:url('+ data[i].profile_pic +') center"> </div><div class="contents" align="center"><span>'+ data[i].name+'('+data[i].designation+')</span><br/><span>'+ data[i].area+'</span></div></div>';
-							list.onClick = function(){
-								console.log(data[i]);
-								showAM(data[i]);
-							};
 							$(".list").append(list);
 					}
 		}
@@ -77,10 +72,10 @@ $("#submit").click(function(){
 	});
 });
 
-function showAM(rm_id){
+function openRM(rm_id){
 	$.ajax({
 		type 	: 	"GET",
-		url 	: 	"../../myt-services/admin/rm/" + rm_id + "/session",
+		url 	: 	"../../myt-services/admin/session/RM/" + rm_id,
 		success : 	function(data){
 					console.log(data);
 					if(data.id > 0){

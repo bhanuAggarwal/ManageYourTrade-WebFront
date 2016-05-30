@@ -224,6 +224,14 @@ body{
     text-align: center;
 
 }
+
+.dropdown-menu > li {
+    cursor: pointer;
+    line-height: 25px;
+    margin-top :  2px;
+    margin-left: 5px;
+
+}
 div.vertical-line{
   width: 0px; /* Use only border style */
   height: 100%;
