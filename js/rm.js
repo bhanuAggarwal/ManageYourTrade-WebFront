@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"http://localhost:8080/myt-services/admin/rm/details",
+		url			: 	"http://localhost:8080/myt-services/admin/rm/"+ rm_id +"/details",
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	console.log("ready");
 	$.ajax({
 		type		: "GET",
-		url 		: "http://localhost:8080/myt-services/admin/am",
+		url 		: "http://localhost:8080/myt-services/admin/am?rm_id=" + rm_id,
 		contentType	: "application/json",
 		success		: function(data){
 						rm_list = data;
@@ -28,7 +28,7 @@ $(document).ready(function() {
 											'<div class="itemName col-md-10">' +
 												data[i].name +
 												'<div class="itemEmail">' +
-													data[i].email +
+													data[i].designation + " | " + data[i].area + "<br/>" + data[i].email +
 												'</div>' +
 											'</div>' +
 										'</div>';
@@ -40,12 +40,14 @@ $(document).ready(function() {
 
 $("#submit").click(function(){
 	var am = {};
-		am.name 		= 	$("#name").val();
-		am.email 		= 	$("#email").val();
-		am.designation 	= 	$("#designation").val();
-		am.phone_no 	= 	$("#phone_no").val();
-		am.password 	= 	$("#password").val();
-		am.area 		= 	$("#area").val();
+		am.name 			= 	$("#name").val();
+		am.email 			= 	$("#email").val();
+		am.designation 		= 	$("#designation").val();
+		am.phone_no 		= 	$("#phone_no").val();
+		am.password 		= 	$("#password").val();
+		am.area 			= 	$("#area").val();
+		am.boss_id 			= 	rm_id;
+		am.company_admin_id = 	ca_id;
 	$.ajax({
 		type 			: 	"POST",
 		url				:   "../../myt-services/admin/am", 
@@ -56,7 +58,7 @@ $("#submit").click(function(){
 								var pic = new FormData();
 								pic.append("file",picture.files[0]);
 								$.ajax({
-								    url: '../../myt-services/admin/AM/' + data.id + '/picture',
+								    url: '../../myt-services/admin/AM/' + data.id + '/picture/company/' + company_id,
 								    data: pic,
 								    dataType: 'text',
 								    processData: false,
@@ -74,15 +76,20 @@ $("#submit").click(function(){
 function openAM(am_id){
 	$.ajax({
 		type 	: 	"GET",
-		url 	: 	"../../myt-services/admin/session/AM/" + am_id,
+		url 	: 	"./session.jsp?type=am&value=" + am_id,
 		success : 	function(data){
-					console.log(data);
-					if(data.id > 0){
-						window.location = "am.html";
-					}
-					else{
-						alert("Please Try Again");
-					}
+					window.location = "am.jsp";
 		}
 	});
 }
+
+$('#logout').click(function(){
+	$.ajax({
+		type 	: "GET",
+		url  	: "./session.jsp?type=logout",
+		success : function(data){
+				alert("Logout Successfull");
+				window.location = "../";
+		}
+	});
+})

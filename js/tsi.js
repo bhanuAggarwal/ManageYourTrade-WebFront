@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"http://localhost:8080/myt-services/admin/tsi/details",
+		url			: 	"http://localhost:8080/myt-services/admin/tsi/"+tsi_id+"/details",
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	console.log("ready");
 	$.ajax({
 		type		: "GET",
-		url 		: "http://localhost:8080/myt-services/admin/dealers",
+		url 		: "http://localhost:8080/myt-services/admin/dealers?tsi_id=" + tsi_id ,
 		contentType	: "application/json",
 		success		: function(data){
 						rm_list = data;
@@ -49,11 +49,15 @@ $("#submit").click(function(){
 		dealer.longitude 	= 	$("#longitude").val();
 		dealer.tin	 		= 	$("#tin").val();
 		dealer.pan 			= 	$("#pan").val();
-		dealer.bank_name 	= 	$("#bank_name").val(	);
+		dealer.bank_name 	= 	$("#bank_name").val();
 		dealer.bank_account = 	$("#bank_acc").val();
 		dealer.bank_address = 	$("#bank_add").val();
 		dealer.bank_ifsc 	= 	$("#bank_ifsc").val();
 		dealer.reg_no 		= 	$("#reg_no").val();
+		dealer.boss_id 		= 	tsi_id;
+		dealer.am_id 		= 	am_id;
+		dealer.rm_id 		= 	rm_id;
+		dealer.company_admin_id = ca_id;
 
 	$.ajax({
 		type 			: 	"POST",
@@ -65,7 +69,7 @@ $("#submit").click(function(){
 								var pic = new FormData();
 								pic.append("file",picture.files[0]);
 								$.ajax({
-								    url: '../../myt-services/admin/DEALER/' + data.id + '/picture',
+								    url: '../../myt-services/admin/DEALER/' + data.id + '/picture/company/' + company_id,
 								    data: pic,
 								    dataType: 'text',
 								    processData: false,
@@ -83,15 +87,20 @@ $("#submit").click(function(){
 function openTSI(tsi_id){
 	$.ajax({
 		type 	: 	"GET",
-		url 	: 	"../../myt-services/admin/session/TSI/" + tsi_id,
+		url 	: 	"./session.jsp?type=tsi&value=" + tsi_id,
 		success : 	function(data){
-					console.log(data);
-					if(data.id > 0){
-						window.location = "tsi.html";
-					}
-					else{
-						alert("Please Try Again");
-					}
+						//window.location = "dealer.jsp";
 		}
 	});
 }
+
+$('#logout').click(function(){
+	$.ajax({
+		type 	: "GET",
+		url  	: "./session.jsp?type=logout",
+		success : function(data){
+				alert("Logout Successfull");
+				window.location = "../";
+		}
+	});
+})

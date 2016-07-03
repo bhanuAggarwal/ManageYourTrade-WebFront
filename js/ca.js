@@ -1,22 +1,28 @@
 $(document).ready(function() {
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"http://localhost:8080/myt-services/admin/companyAdmin",
+		url			: 	"http://localhost:8080/myt-services/admin/companyAdmin/" + ca_id,
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
-						$(".userName").html("Hello " + data.username);
 						$(".profile .name").html(data.username);
 						$(".profile .email").html("Email : " + data.email);
 						$(".profile .phone").html("Phone : " + data.phone_no);
 						$(".profile .company").html('Company : ' + data.company.name);
 						$(".profilePic img").attr("src", data.profile_pic);
+						$.ajax({
+							type 	: "GET",
+							url 	: "./session.jsp?type=company&value=" + data.company.id,
+							success : function(data){
+									console.log(data);
+							}
+						})
 		}
 	});
 	console.log("ready");
 	$.ajax({
 		type		: "GET",
-		url 		: "http://localhost:8080/myt-services/admin/rm",
+		url 		: "http://localhost:8080/myt-services/admin/rm?companyAdminId=" + ca_id,
 		contentType	: "application/json",
 		success		: function(data){
 						rm_list = data;
@@ -29,7 +35,7 @@ $(document).ready(function() {
 											'<div class="itemName col-md-10">' +
 												data[i].name +
 												'<div class="itemEmail">' +
-													data[i].email +
+													data[i].designation + " | " + data[i].area + "<br/>" + data[i].email +
 												'</div>' +
 											'</div>' +
 										'</div>';
@@ -47,6 +53,7 @@ $("#submit").click(function(){
 		rm.phone_no 	= 	$("#phone_no").val();
 		rm.password 	= 	$("#password").val();
 		rm.area 		= 	$("#area").val();
+		rm.boss_id 		= 	ca_id;
 	$.ajax({
 		type 			: 	"POST",
 		url				:   "../../myt-services/admin/rm", 
@@ -57,7 +64,7 @@ $("#submit").click(function(){
 								var pic = new FormData();
 								pic.append("file",picture.files[0]);
 								$.ajax({
-								    url: '../../myt-services/admin/RM/' + data.id + '/picture',
+								    url: '../../myt-services/admin/RM/' + data.id + '/picture/company/'+ company_id,
 								    data: pic,
 								    dataType: 'text',
 								    processData: false,
@@ -75,15 +82,20 @@ $("#submit").click(function(){
 function openRM(rm_id){
 	$.ajax({
 		type 	: 	"GET",
-		url 	: 	"../../myt-services/admin/session/RM/" + rm_id,
+		url 	: 	"./session.jsp?type=rm&value=" + rm_id,
 		success : 	function(data){
-					console.log(data);
-					if(data.id > 0){
-						window.location = "rm.html";
-					}
-					else{
-						alert("Please Try Again");
-					}
+					window.location = "rm.jsp";
 		}
 	});
 }
+
+$('#logout').click(function(){
+	$.ajax({
+		type 	: "GET",
+		url  	: "./session.jsp?type=logout",
+		success : function(data){
+				alert("Logout Successfull");
+				window.location = "../";
+		}
+	});
+})

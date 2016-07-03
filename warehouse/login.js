@@ -2,17 +2,6 @@ $("#login").click(function(){
 	if($('#username').val() == "" || $('#password').val() == ""){
 		alert("All Fields are Required");
 	}
-	else if($('#username').val() == 'admin' && $('#password').val() == 'admin'){
-		$.ajax({
-			type 	: "GET",
-			url 	: "./html/session.jsp?type=superAdmin&value=1",
-			success : function(data){
-				console.log(data);
-				window.location.replace("html/superAdmin.jsp");
-			}
-		});
-	    return false;
-	} 
 	else {
 		var user = {
 			"email"		: $('#username').val(),
@@ -30,12 +19,12 @@ $("#login").click(function(){
 								if(data.type == "CA"){
 									$.ajax({
 										type 	: "GET",
-										url 	: "./html/session.jsp?type=ca&value=" + data.reference_id,
+										url 	: "../html/session.jsp?type=ca&value=" + data.reference_id,
 										success : function(data){
 											console.log(data);
 										}
 									});
-									window.location.replace("html/ca.jsp");
+									window.location.replace("warehouse.jsp");
 								}
 								else{
 									alert("Service not Available");

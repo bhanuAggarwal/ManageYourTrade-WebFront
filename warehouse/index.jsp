@@ -1,9 +1,18 @@
+<%@ page import="java.io.*,java.util.*" %>
+<%  
+  String site = new String();
+  if(session.getAttribute("ca_id") != null){
+    site = new String("./warehouse.jsp");
+    response.setStatus(response.SC_MOVED_TEMPORARILY);
+    response.setHeader("Location", site); 
+  }
+%>
 <!DOCTYPE html>
 <html>
 <head>
   <title>MYT</title>
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
@@ -18,7 +27,7 @@
             <div class="tagLine">Let's get started.</div>
 
           </div>
-          <img src="media/logo.png" height="80px" class="logo">
+          <img src="../media/logo.png" height="80px" class="logo">
           <form class="loginForm">
               <input class="form-control fields" type="text" id="username" name="username" placeholder="Email">
               <input class="form-control fields" type="password" id="password" name="password" placeholder="Password">
@@ -28,6 +37,6 @@
       </div>
   </div>
 </body>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<script type="text/javascript" src="login.js"></script>
 </html>
