@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <script type="text/javascript" src="../js/jquery.js"></script>
@@ -19,7 +18,7 @@ $(document).ready(function() {
 		company.reg_no = $("#reg_no").val();
 		$.ajax({
   			type: "POST",
-  			url: "http://localhost:8080/myt-services/super-admin/company",
+  			url: "../../myt-services/super-admin/company",
   			data: JSON.stringify(company),
   			success: function f1 () {
   				var company_admin = {};
@@ -33,7 +32,7 @@ $(document).ready(function() {
   				company_admin.dealer_no  = $("#Dealer_no").val();
   				$.ajax({
   					type: "POST",
-  					url: "http://localhost:8080/myt-services/super-admin/company-admin",
+  					url: "../../myt-services/super-admin/company-admin",
   					data: JSON.stringify(company_admin),
   					success: function f1 () {
   						alert("Company Admin and Company added");
