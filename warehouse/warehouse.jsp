@@ -87,7 +87,7 @@
 		      <div class="modal-body">
 	        	<form method = "POST" enctype="multipart/form-data">
 
-					<label for="invoice"> Invoice</label>
+					<label for="invoice" style="margin-left:2%"> Invoice</label>
 					<input type = "file" name = "invoice" id = "invoice" onchange="readURL(this);"/><br/>
 					<label for="collection"> Collection</label>
 					<input type = "file" name = "collection" id = "collection" onchange="readURL(this);"/><br/>
