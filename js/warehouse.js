@@ -13,7 +13,7 @@ $(document).ready(function(){
 	});
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"http://localhost:8080/myt-services/admin/companyAdmin/" + companyAdminId,
+		url			: 	"../../myt-services/admin/companyAdmin/" + companyAdminId,
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
@@ -30,7 +30,7 @@ $(document).ready(function(){
 	});
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"http://localhost:8080/myt-services/order/list/warehouse?company_id=" + company_id,
+		url			: 	"../../myt-services/order/list/warehouse?company_id=" + company_id,
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
@@ -113,7 +113,7 @@ $('#submit').click(function(){
 	console.log(JSON.stringify(warehouse));
 	$.ajax({
 		type 		: "POST",
-		url 		: "http://localhost:8080/myt-services/admin/warehouse/bill",
+		url 		: "../../myt-services/admin/warehouse/bill",
 		contentType : "application/json",
 		data 		: JSON.stringify(warehouse),
 		success 	: function(data){
@@ -125,7 +125,7 @@ $('#submit').click(function(){
 									
 									$.ajax({
 										type 		: "POST",
-										url 		: "http://localhost:8080/myt-services/admin/warehouse/bill/" + bill_id+ "/" + billType[i],
+										url 		: "../../myt-services/admin/warehouse/bill/" + bill_id+ "/" + billType[i],
 										dataType	: "text",
 										processData : false,
 										contentType : false,

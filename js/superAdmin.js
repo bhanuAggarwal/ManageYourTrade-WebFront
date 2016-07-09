@@ -2,7 +2,7 @@ $(document).ready(function() {
 	console.log("ready");
 	$.ajax({
 		type		: "GET",
-		url 		: "http://localhost:8080/myt-services/super-admin/company-admin",
+		url 		: "../../myt-services/super-admin/company-admin",
 		contentType	: "application/json",
 		success		: function(data){
 						rm_list = data;
@@ -40,7 +40,7 @@ $(document).ready(function() {
 		//if()
 		$.ajax({
   			type: "POST",
-  			url: "http://localhost:8080/myt-services/super-admin/company",
+  			url: "../../myt-services/super-admin/company",
   			data: JSON.stringify(company),
   			success: function(companyResponse) {
   				console.log(companyResponse);
@@ -56,7 +56,7 @@ $(document).ready(function() {
   				company_admin.dealer_no  = $("#dealer_no").val();
   				$.ajax({
   					type: "POST",
-  					url: "http://localhost:8080/myt-services/super-admin/company-admin/company/" + company_id,
+  					url: "../../myt-services/super-admin/company-admin/company/" + company_id,
   					data: JSON.stringify(company_admin),
   					success: function(companyAdminResponse) {
   						var pic = new FormData();

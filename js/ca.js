@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"http://localhost:8080/myt-services/admin/companyAdmin/" + ca_id,
+		url			: 	"../../myt-services/admin/companyAdmin/" + ca_id,
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
@@ -22,7 +22,7 @@ $(document).ready(function() {
 	console.log("ready");
 	$.ajax({
 		type		: "GET",
-		url 		: "http://localhost:8080/myt-services/admin/rm?companyAdminId=" + ca_id,
+		url 		: "../../myt-services/admin/rm?companyAdminId=" + ca_id,
 		contentType	: "application/json",
 		success		: function(data){
 						rm_list = data;

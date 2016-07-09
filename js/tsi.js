@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"http://localhost:8080/myt-services/admin/tsi/"+tsi_id+"/details",
+		url			: 	"../../myt-services/admin/tsi/"+tsi_id+"/details",
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	console.log("ready");
 	$.ajax({
 		type		: "GET",
-		url 		: "http://localhost:8080/myt-services/admin/dealers?tsi_id=" + tsi_id ,
+		url 		: "../../myt-services/admin/dealers?tsi_id=" + tsi_id ,
 		contentType	: "application/json",
 		success		: function(data){
 						rm_list = data;
