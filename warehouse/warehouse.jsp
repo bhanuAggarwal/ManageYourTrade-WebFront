@@ -1,7 +1,7 @@
 <%@ page import="java.io.*,java.util.*" %>
 <%
 	if(session.getAttribute("ca_id") == null){
-		String site = new String("http://localhost:8080/myt-admin/warehouse");
+		String site = new String("./");
 		response.setStatus(response.SC_MOVED_TEMPORARILY);
     	response.setHeader("Location", site);
 	}
