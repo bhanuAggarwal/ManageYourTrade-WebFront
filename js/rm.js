@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"../../myt-services/admin/rm/"+ rm_id +"/details",
+		url			: 	"../../myt-services/admin/rm/"+ rm_id,
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$.ajax({
 		type 		: 	"GET",
-		url			: 	"../../myt-services/admin/tsi/"+tsi_id+"/details",
+		url			: 	"../../myt-services/admin/tsi/"+tsi_id,
 		contentType	: 	"application/json",
 		success		:  	function(data){
 						console.log(data);
