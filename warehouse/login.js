@@ -9,7 +9,7 @@ $("#login").click(function(){
 		}
 		$.ajax({
 			type		: "POST", 
-			url			: "http://localhost:8080/myt-services/admin/login", 
+			url			: "../../myt-services/admin/login", 
 			data		: JSON.stringify(user),
 			dataType 	: "json",
 		  	contentType	: "application/json",
